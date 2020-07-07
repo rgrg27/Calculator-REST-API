@@ -1,0 +1,29 @@
+This is the REST Service which takes a mathematical expression and returns value for valid expressions,
+ otherwise returns zero. Apart from evaluating expression it also provides information about frequency
+ of characters and operators used by a user.There is another service which returns operator most 
+ used by a user.
+ 
+ This is a springboot application with in-memory database system (h2 database: https://www.h2database.com/html/main.html)
+ . Data of the user will be lost if application is closed and run again.
+ 
+ Use:
+ There are 4 URL's those can be hit while running the application:
+ 
+ 1.localhost:10090/expression which is a POST url, taking JSON of the form 
+ MathExpression = {id: id, exp: expression to be evaluated}. the first property id of object is not 
+ obligatory while posting,but an mathematical expression in string form as value with "exp" as key is. 
+ this post url will return the value of expression if it is a valid mathmatical expression otherwise 0.
+ 
+ 2. localhost:10090/expression/all is a get url, that does not take any request parameters, and returns a 
+ list of expressions entered by a user. The list shown will contain only those expression, which was
+  entered after most recent launch of application. The list will contain both type of expressions ( valid
+  as well as invalid expressions entered by a user) 
+  
+ 3. localhost:10090/operators/ is a get url, that does not take any request parameters, and returns a 
+ JSON object containg count of most used operator and the operator.
+ 
+ 4. localhost:10090/operators/all is a get url, that does not take any request parameters, and returns a 
+List of json objects containing count of each operator and the operator.
+ 
+ 
+ 
